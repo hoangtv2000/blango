@@ -3,5 +3,5 @@
 Starting point for the Advanced Django course. This is the equivalent of the following command:
 
 ```bash
-$ django-admin.py startproject blango
+Password of codio2 : D3adn7LDrTm7cxR
 ```
