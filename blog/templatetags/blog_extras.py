@@ -9,8 +9,14 @@ user_model = get_user_model()
 register = template.Library()
 
 
+
 @register.filter(name="author_details") # Further being used in index.html as author_details!
 def author_details(author, current_user=None):
+    """
+    + Using mark_safe means that Django will not escape the text. If you have user-generated text, this could be way to inject malicious code into the website.
+    + Using format_html will automatically escape the text. Malicious code would not be executed.
+    + A simple f-string provides no protection from malicious code.
+    """
     if not isinstance(author, user_model):
         # return empty string as safe default
         return ""
