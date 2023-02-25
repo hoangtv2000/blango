@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% load blog_extras %}
+<!-- {% load blog_extras %} -->
 
 {% block content %}
 
@@ -105,11 +105,11 @@ Extra extra large (xxl) ≥1400px -->
 
 
 
-{% for post in posts %}
+<!-- {% for post in posts %}
   <div class="row">
       <div class="col">
           <h3>{{ post.title }}</h3>
-          <small>By {{ post.author|author_details:request.user }} on {{ post.published_at|date:"M, d Y" }}</small>
+          <small>By {% author_details %} on {{ post.published_at|date:"M, d Y" }}</small>
           <p>{{ post.summary }}</p>
           <p>
               ({{ post.content|wordcount }} words)
@@ -117,7 +117,24 @@ Extra extra large (xxl) ≥1400px -->
           </p>
       </div>
   </div>
-{% endfor %}
+{% endfor %} -->
+
+
+
+    <h2>Blog Posts</h2>
+    {% for post in posts %}
+    {% row "border-bottom" %}
+        <div class="col">
+            <h3>{{ post.title }}</h3>
+            {% include "blog/post-byline.html" %}
+            <p>{{ post.summary }}</p>
+            <p>
+                ({{ post.content|wordcount }} words)
+                <a href="{% url "blog-post-detail" post.slug %}">Read More</a>
+            </p>
+        </div>
+    {% endrow %}
+    {% endfor %}
 
 
 {% endblock %}
