@@ -26,7 +26,7 @@ class Dev(Configuration):
   BASE_DIR = Path(__file__).resolve().parent.parent
 
   # Admin Settings 
-  ADMINS = [("Jordan Brocker Rudow", "jbrockerrudow@gmail.com")]
+  ADMINS = [("Tran Viet-Hoang", "hoangtv21082000@gmail.com")]
 
   # Logging Configuration Settings
   # This config sets up one handler with the ID console. 
